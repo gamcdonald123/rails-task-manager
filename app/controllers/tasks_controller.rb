@@ -28,7 +28,7 @@ class TasksController < ApplicationController
     redirect_to task_path(params[:id])
   end
 
-  def delete
+  def destroy
     @task = Task.find(params[:id])
     @task.destroy
     redirect_to tasks_path, status: :see_other
@@ -37,6 +37,6 @@ class TasksController < ApplicationController
   private
 
   def task_params
-    params.require(:task).permit(:title, :details)
+    params.require(:task).permit(:title, :details, :completed)
   end
 end

@@ -2,8 +2,13 @@
 
 <p><%= @task.title %></p>
 <p><%= @task.details %></p>
+<% if (@task.completed == false) %>
+  <p>Completeness: 🟥</p>
+<% else %>
+  <p>Completeness: 🟩</p>
+<% end %>
 
-<%= link_to "Edit task", edit_path %>
+<%= link_to "Edit task", edit_task_path %>
 <br>
 <%= link_to "Back to all tasks", tasks_path %>
 <br>
